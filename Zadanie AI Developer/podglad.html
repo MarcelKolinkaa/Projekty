@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Przegląd wpływu i wyzwań związanych ze sztuczną inteligencją.">
+    <title>Sztuczna Inteligencja: Wpływ i Wyzwania</title>
+    <style>
+        /* Reset stylów */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Stylizacja ogólna */
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            padding: 0;
+            background-image: linear-gradient(to right, #e0f7fa 10%, #ffffff 90%); /* Delikatny gradient po bokach */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Dodanie płynnej zmiany */
+        }
+
+        /* Nagłówek */
+        header {
+            text-align: center;
+            padding: 30px;
+            background-color: #003366; /* Ciemnoniebieskie tło nagłówka */
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Delikatny cień */
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        /* Nawigacja */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #003366;
+            padding: 10px;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Breadcrumbs */
+        .breadcrumbs {
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+
+        .breadcrumbs a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumbs span {
+            margin: 0 5px;
+            color: #555;
+        }
+
+        /* Główna sekcja */
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff; /* Białe tło dla głównej sekcji */
+            margin-top: 30px; /* Przestrzeń od góry */
+            transition: background-color 0.3s ease;
+        }
+
+        /* Stylizacja sekcji i nagłówków */
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f1f1f1; /* Delikatne tło dla sekcji */
+            border-left: 5px solid #003366; /* Kolorowa linia po lewej stronie */
+            border-radius: 10px;
+            transition: background-color 0.3s ease; /* Dodanie efektu na hover */
+        }
+
+        section:hover {
+            background-color: #e0f7fa; /* Zmiana koloru tła po najechaniu */
+        }
+
+        section h2 {
+            font-size: 1.8em;
+            color: #003366;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 5px;
+        }
+
+        /* Stylizacja akapitów */
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        /* Stylizacja obrazów */
+        img {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 15px 0;
+            border: 2px solid #003366; /* Obwódka wokół obrazów */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.05); /* Powiększenie po najechaniu */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Mocniejszy cień */
+        }
+
+        /* Stopka */
+        footer {
+            font-style: italic;
+            font-size: 0.9em;
+            text-align: center;
+            margin-top: 30px;
+            color: #555;
+            padding: 20px;
+            background-color: #003366; /* Tło stopki */
+            color: white;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Ciemny motyw */
+        .dark-theme {
+            background-color: #1a1a1a;
+            color: #f9f9f9;
+        }
+
+        /* Przystosowanie elementów do ciemnego motywu */
+        .dark-theme header {
+            background-color: #111;
+            color: #ddd;
+        }
+
+        .dark-theme main {
+            background-color: #333;
+        }
+
+        .dark-theme section {
+            background-color: #444;
+            border-left: 5px solid #ddd;
+        }
+
+        .dark-theme section h2 {
+            color: #ddd;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .dark-theme footer {
+            background-color: #111;
+            color: #ddd;
+        }
+
+        /* Stylizacja przycisku zmiany motywu */
+        .theme-toggle-button {
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            font-size: 1em;
+            background-color: #003366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .theme-toggle-button:hover {
+            background-color: #002244;
+        }
+
+        /* Responsywność dla urządzeń o szerokości do 600px (typowe telefony) */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            section h2 {
+                font-size: 1.3em;
+            }
+
+            img {
+                max-width: 100%;
+            }
+
+            nav {
+                flex-direction: column;
+                padding: 15px;
+            }
+        }
+
+        /* Dodatkowa responsywność dla jeszcze mniejszych urządzeń o szerokości do 400px (bardzo małe telefony) */
+        @media (max-width: 400px) {
+            header h1 {
+                font-size: 1.2em;
+            }
+
+            section h2 {
+                font-size: 1.2em;
+            }
+
+            p {
+                font-size: 0.9em;
+            }
+
+            img {
+                max-width: 100%;
+                margin: 10px 0;
+            }
+
+            .breadcrumbs {
+                font-size: 0.8em;
+            }
+
+            footer {
+                font-size: 0.8em;
+            }
+        }
+
+        /* Zmiany dla urządzeń o bardzo małych ekranach (np. w trybie portretowym na tabletach) */
+        @media (max-width: 320px) {
+            header h1 {
+                font-size: 1.1em;
+            }
+
+            section h2 {
+                font-size: 1.1em;
+            }
+
+            p {
+                font-size: 0.8em;
+            }
+
+            img {
+                max-width: 100%;
+                margin: 8px 0;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+
+            .breadcrumbs {
+                font-size: 0.7em;
+            }
+
+    footer {
+        font-size: 0.7em;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Sztuczna inteligencja: wpływ i wyzwania</h1>
+    </header>
+
+    <nav class="breadcrumbs">
+        <a href="#">Home</a> <span>/</span>
+        <a href="#">AI</a> <span>/</span>
+        <a href="#">Wpływ i wyzwania</a>
+    </nav>
+
+    <main>
+        <article>
+            <section id="impact">
+                <h2>Sztuczna inteligencja</h2>
+                <p>Sztuczna inteligencja to dziedzina nauki i technologii zajmująca się tworzeniem maszyn i programów
+                    zdolnych do wykonywania zadań wymagających ludzkiej inteligencji, takich jak uczenie się, rozumienie
+                    języka naturalnego i podejmowanie decyzji. AI stała się integralną częścią naszego codziennego życia,
+                    od asystentów głosowych w smartfonach, jak Siri czy Google Assistant, po systemy rekomendacyjne na
+                    platformach streamingowych, takich jak Netflix czy Spotify.</p>
+                <img src="image_placeholder.jpg" alt="Zastosowanie sztucznej inteligencji w różnych dziedzinach życia">
+                <p>Obraz: Implementacja sztucznej inteligencji w różnych dziedzinach życia.</p>
+            </section>
+            <section id="challenges">
+                <h2>Wyzwania etyczne i społeczne</h2>
+                <p>Kluczowym wyzwaniem jest zapewnienie etycznego i odpowiedzialnego rozwoju AI. Należy zwracać uwagę na
+                    uprzedzenia w danych treningowych, które mogą prowadzić do dyskryminacji, oraz na wpływ AI na
+                    prywatność i nierówności społeczne. Ważne jest opracowanie ram etycznych i mechanizmów nadzoru
+                    regulujących rozwój i wdrażanie AI, a także włączanie różnych grup społecznych w ten proces.</p>
+                <img src="image_placeholder.jpg" alt="Ilustracja wyzwań etycznych i społecznych związanych z AI">
+                <p>Obraz: Ilustracja wyzwań etycznych i społecznych związanych z rozwojem sztucznej inteligencji.</p>
+            </section>
+            <section id="future">
+                <h2>Automatyzacja i przyszłość rynku pracy</h2>
+                <p>Automatyzacja procesów dzięki AI przynosi korzyści w postaci zwiększonej efektywności i redukcji kosztów.
+                    Jednak istnieją obawy dotyczące wpływu na rynek pracy i potencjalnego zastąpienia ludzi przez maszyny.
+                    Kluczowe jest przemyślane podejście do transformacji rynku pracy, inwestycja w edukację i
+                    przekwalifikowanie pracowników, aby mogli oni znaleźć nowe role w gospodarce przyszłości.</p>
+                <img src="image_placeholder.jpg" alt="Ilustracja automatyzacji procesów w przyszłości rynku pracy">
+                <p>Obraz: Zastosowanie AI w automatyzacji procesów na rynku pracy.</p>
+            </section>
+            <button class="theme-toggle-button" onclick="toggleTheme()">Zmień motyw</button>
+        </article>
+    </main>
+
+    <footer>
+        <p><i>*Tekst opracowany przez AI. W Oxido nie mamy aż tak cukierkowego spojrzenia na sztuczną
+                inteligencję...</i></p>
+    </footer>  
+</body>
+    <script>
+        function toggleTheme() {
+            // Przełącz klasę dark-theme na body
+            document.body.classList.toggle('dark-theme');
+        }
+    </script>
+</html>
