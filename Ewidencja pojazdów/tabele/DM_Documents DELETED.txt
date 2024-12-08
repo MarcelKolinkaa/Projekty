@@ -1,6 +1,0 @@
-CREATE TABLE DM_documents (
-    id                                   NUMBER NOT NULL PRIMARY KEY,
-    expire_date_of_driving_license       DATE,
-    expire_date_of_vehicle_registration  DATE,
-    expire_date_of_insurance             DATE
-);
