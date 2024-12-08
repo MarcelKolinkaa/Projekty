@@ -196,6 +196,10 @@
         a, input, select, textarea, button, table tr {
             transition:  0.3s ease, color 0.3s ease,  0.3s ease,  0.3s ease;
         }
+        
+        .wyszukiwarka{
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -441,7 +445,8 @@
                     </tr>
                     <?php
                     $baza = new mysqli("127.0.0.1", "root", "", "marcelkolinka");
-                    $zapytanie = "SELECT * from dane_kontrahentow";
+                    $search = isset($_GET['search']) ? $_GET['search'] : '';
+                    $zapytanie = "SELECT `NIP`, `REGON`, `NAZWA`, `CZY_PŁATNIK_VAT?`, `ULICA`, `NUMER_DOMU`, `NUMER_MIESZKANIA` from `dane_kontrahentow` where `NIP` LIKE '%$search%' OR `REGON`LIKE '%$search%' OR `NAZWA`LIKE '%$search%' OR `CZY_PŁATNIK_VAT?`LIKE '%$search%' OR `ULICA` LIKE '%$search%' OR`NUMER_DOMU` LIKE '%$search%' OR  `NUMER_MIESZKANIA` LIKE '%$search%'";
                     $wynik = mysqli_query($conn, $zapytanie);
 
                     while ($row = mysqli_fetch_array($wynik)) {
@@ -484,12 +489,21 @@
                     $conn->close();
                     ?>
                 </table>
+                <div class="wyszukiwarka">
+                <form method="GET">
+                        <label>Wyszukaj Kontrahenta:</label>
+                        <br>
+                        <input type="text" name="search">
+                        <br>
+                        <input type="submit" value="Szukaj">
+                    </form>
+            </div>
             </div>
         </div>
     </div>
 
     <footer>
-        © 2024 e-MSI. Wszelkie prawa zastrzeżone. Kontakt: kontakt@e-msi.pl
+       zadaniephp
     </footer>
 
     <script>
