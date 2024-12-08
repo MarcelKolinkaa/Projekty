@@ -97,7 +97,6 @@
 
         input, select, textarea {
             display: inline-block;
-            width: calc(100% - 180px);
             max-width: 300px;
             padding: 8px;
             margin-bottom: 10px;
@@ -257,17 +256,7 @@
                     <option>czerwony</option>
                     <option>biały</option>
                 </select><br><br>
-                <label for="vat">VAT: </label>
-                <select id="vat" name="vat">
-                    <option value="1">ZW</option>
-                    <option value="1">NP.</option>
-                    <option value="1">0%</option>
-                    <option value="1.03">3%</option>
-                    <option value="1.08">8%</option>
-                    <option value="1.23" selected>23%</option>
-                </select>
-                <button onclick="applyvat()">Zastosuj VAT</button>
-
+           
                 <ol>
                     <li>Element</li>
                     <li>Element</li>
@@ -336,7 +325,7 @@
                 <label for="color2">Wybierz kolor 2:</label>
                 <input type="color" id="color2" name="color2" value="">
                 <button onclick="applyColors()">Zastosuj kolory</button>
-
+            
                 <script>
                     function applyColors() {
                         var color1 = document.getElementById('color1').value;
@@ -357,6 +346,16 @@
                 <h2>TABELA Faktur VAT</h2>
                 <table id="faktura"></table>
                 <button onclick="applyGreen()">Zmień kolor wartosci netto powyżej 1000zł</button>
+                <label for="vat">VAT: </label>
+                <select id="vat" name="vat">
+                    <option value="1">ZW</option>
+                    <option value="1">NP.</option>
+                    <option value="1">0%</option>
+                    <option value="1.03">3%</option>
+                    <option value="1.08">8%</option>
+                    <option value="1.23" selected>23%</option>
+                </select>
+                <button onclick="applyvat()">Zastosuj VAT</button>
 
                 <script>
                     var clickCounter = true;

@@ -1,0 +1,1 @@
+Drobne zadania, które realizowałem w ramach ćwiczeń, obejmowały pisanie zapytań SQL oraz tworzenie struktur bazodanowych.
